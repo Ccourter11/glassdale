@@ -8,3 +8,13 @@
   display: flex;
   flex-wrap: wrap;
 }
+.officer {
+  border: solid 2px rgb(156, 152, 152);
+  margin: 10px;
+  flex: 15%;
+  padding: 10px;
+}
+.officerList {
+  display: flex;
+  flex-wrap: wrap;
+}
