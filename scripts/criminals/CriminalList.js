@@ -15,8 +15,8 @@ export const CriminalList = () => {
       CriminalsContinainer.innerHTML = `
 
 
-    <h3>Glassdale officers</h3>
-    <section class="criminalCard">
+    <h3>Glassdale Criminals</h3>
+    <section class="criminalList">
         ${criminalsHTMLRepresentations}
       
     </section>

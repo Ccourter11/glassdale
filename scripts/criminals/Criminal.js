@@ -19,14 +19,14 @@
 //         `;
 // };
 
-// mine above
+// old above
 
-// scotts below
+// new below
 
 export const Criminal = (criminalObj) => {
   return `
-  <section id="criminal-${criminalObj.id}" class="criminal__card">
-      <div class="col">
+  <section class="criminal">
+      
           <h2 class="criminal__">${criminalObj.name}</h2>
           <div>Age: ${criminalObj.age}</div>
           <div>Crime: ${criminalObj.conviction}</div>
@@ -36,8 +36,8 @@ export const Criminal = (criminalObj) => {
           <div>Term End: ${new Date(
             criminalObj.incarceration.end
           ).toLocaleDateString("en-US")}</div>
-          <button id="associates--${criminalObj.id}">Associate Alibis</button>
-      </div>
+          <button id="associates--${criminalObj.id}"> Associate Alibis</button>
+      
   </section>
   `;
 };
