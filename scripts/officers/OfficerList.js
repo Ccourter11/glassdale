@@ -21,7 +21,7 @@ export const OfficerList = () => {
       // we append the string above the the dom
       OfficersContainer.innerHTML = `
             
-        <h3>Katie stinky so sexy hehe</h3>
+        <h3>Glassdale officers</h3>
         <section class="officerList">
             ${officersHTMLRepresentations}
         </section>
