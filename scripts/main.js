@@ -1,3 +1,5 @@
-import { getOfficers } from "./officers/OfficerProvider.js";
+// Main.js is calling OfficerList here
 
-getOfficers();
+import { OfficerList } from "./officers/OfficerList.js";
+
+OfficerList();
