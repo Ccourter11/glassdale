@@ -1,0 +1,12 @@
+.criminalList {
+  border: 1px solid black;
+  display: grid;
+}
+
+.criminalCard {
+  border: 1px solid black;
+  margin: 2%;
+  width: 25%;
+  /* display: grid; */
+  justify-content: space-between;
+}

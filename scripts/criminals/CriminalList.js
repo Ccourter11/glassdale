@@ -16,11 +16,9 @@ export const CriminalList = () => {
 
 
     <h3>Glassdale officers</h3>
-    <section class="criminalList">
+    <section class="criminalCard">
         ${criminalsHTMLRepresentations}
-        ${criminalsHTMLRepresentations}
-        ${criminalsHTMLRepresentations}
-        ${criminalsHTMLRepresentations}
+      
     </section>
         
         
