@@ -15,12 +15,10 @@ export const CriminalList = () => {
       CriminalsContinainer.innerHTML = `
 
 
-    <h3>Glassdale officers</h3>
+    <h3>Glassdale Criminals</h3>
     <section class="criminalList">
         ${criminalsHTMLRepresentations}
-        ${criminalsHTMLRepresentations}
-        ${criminalsHTMLRepresentations}
-        ${criminalsHTMLRepresentations}
+      
     </section>
         
         
