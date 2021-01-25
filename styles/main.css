@@ -1,12 +1,27 @@
-.criminalList {
+/* .criminalList {
   border: 1px solid black;
   display: grid;
-}
+} */
 
-.criminalCard {
+/* .criminalCard {
   border: 1px solid black;
   margin: 2%;
-  width: 25%;
-  /* display: grid; */
-  justify-content: space-between;
+  width: 25%; */
+/* display: grid; */
+/* justify-content: space-between;
+} */
+/* h3 {
+  justify-content: center;
+} */
+.criminalsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 4rem;
+}
+.col {
+  border-color: rgb(156, 152, 152);
+  border-style: solid;
+  text-indent: 10px;
+  margin-bottom: 5px;
 }
