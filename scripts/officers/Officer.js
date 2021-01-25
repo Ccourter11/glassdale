@@ -10,4 +10,4 @@ export const Officer = (officerObj) => {
     `;
 };
 
-// the gets returned back to officer list that gets all put into a string ie into ->officersHTMLRepresentations<- += Officer(officer)
+// then gets returned back to Officer List.js that gets all put into a string ie into ->officersHTMLRepresentations<- += Officer(officer)
