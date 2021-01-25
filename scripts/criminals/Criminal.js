@@ -5,7 +5,7 @@ export const Criminal = (criminalObj) => {
     ${criminalObj.name}
     ${criminalObj.age}
     ${criminalObj.conviction}
-    ${criminalObj.dates}
+    ${new Date(criminalObj.incarceration.start).toLocaleDateString("en-US")}}
 </p>
     
         `;
