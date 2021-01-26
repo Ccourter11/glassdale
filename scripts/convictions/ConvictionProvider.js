@@ -1,9 +1,4 @@
-let convictions = [
-  {
-    id: "",
-    name: "",
-  },
-];
+let convictions = [];
 
 export const useConvictions = () => convictions.slice();
 
@@ -13,10 +8,13 @@ export const getConvictions = () => {
         Make sure the last `then()` sets the local `convictions`
         variable to what is in the response from the API.
     */
-  return fetch("https://criminals.glassdale.us/crimes")
-    .then((response) => response.json())
-    .then((parsedConvictions) => {
-      console.table(parsedConvictions);
-      convictions = parsedConvictions;
-    });
+  return (
+    fetch("https://criminals.glassdale.us/crimes")
+      .then((response) => response.json())
+      // .then((convictionsArray) => (convictions = convictionsArray));
+      .then((parsedConvictions) => {
+        console.table(parsedConvictions);
+        convictions = parsedConvictions;
+      })
+  );
 };
