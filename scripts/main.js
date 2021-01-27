@@ -1,4 +1,5 @@
 // Main.js is calling OfficerList here
+import { NoteForm } from "./notes/NoteForm.js";
 import { CriminalList } from "./criminals/CriminalList.js";
 import { OfficerList } from "./officers/OfficerList.js";
 // import { getOfficers } from "./officers/OfficerProvider.js";
@@ -8,7 +9,8 @@ import { OfficerSelect } from "./officers/OfficerSelect.js";
 
 OfficerList();
 CriminalList();
-// getOfficers();
+
 ConvictionSelect();
 getConvictions();
 OfficerSelect();
+NoteForm();
