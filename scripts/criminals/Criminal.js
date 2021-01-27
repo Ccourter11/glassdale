@@ -1,6 +1,6 @@
 export const Criminal = (criminalObj) => {
   return `
-  <section class="criminal">
+  <article class="criminal">
 
           <h2 class="criminal__">${criminalObj.name}</h2>
           <div>Age: ${criminalObj.age}</div>
@@ -13,7 +13,7 @@ export const Criminal = (criminalObj) => {
           ).toLocaleDateString("en-US")}</div>
           <button id="associates--${criminalObj.id}"> Associate Alibis</button>
 
-  </section>
+  </article>
   `;
 };
 
