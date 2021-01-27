@@ -11,7 +11,7 @@ const render = () => {
         <input type="text" name="suspect" id="suspect"></input>
 
         <label for="noteEntry">Notes</label>
-        <textarea id="noteEntry" name="noteEntry" row="5" cols="14" placeholder="Notes about case..."></textarea>
+        <textarea id="noteEntry" name="noteEntry" row="5" cols="13" placeholder="Notes about case..."></textarea>
 
     </fieldset>
     <button type="submit" value="submit" id="saveNote">Save Note</button>

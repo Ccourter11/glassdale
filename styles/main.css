@@ -1,24 +1,3 @@
-/* .criminal {
-  border: solid 2px rgb(156, 152, 152);
-  margin: 10px;
-  flex: 15%;
-  padding: 10px;
-}
-.criminalList {
-  display: flex;
-  flex-wrap: wrap;
-}
-.officer {
-  border: solid 2px rgb(156, 152, 152);
-  margin: 10px;
-  flex: 15%;
-  padding: 10px;
-}
-.officerList {
-  display: flex;
-  flex-wrap: wrap;
-} */
-
 .criminalsList,
 .officersList {
   display: flex;
@@ -27,6 +6,7 @@
   align-content: space-between;
 }
 
+}
 .criminal,
 .officer {
   border: 1px dotted black;
