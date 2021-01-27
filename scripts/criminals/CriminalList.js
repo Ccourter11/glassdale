@@ -26,6 +26,8 @@ export const CriminalList = () => {
   });
 };
 
+// this is the find() & filter() method being used to specifically render what youve selected in the drop down
+
 // Listen for the "crimeChosen" custom event you dispatched in ConvictionSelect
 eventHub.addEventListener("crimeChosen", (crimeChosenEvent) => {
   if (crimeChosenEvent.detail.crimeThatWasChosen !== "0") {
@@ -69,4 +71,19 @@ eventHub.addEventListener("crimeChosen", (crimeChosenEvent) => {
     */
     renderToDom(filteredCriminalsArray);
   }
+});
+eventHub.addEventListener("officerSelected", (event) => {
+  // How can you access the officer name that was selected by the user?
+  const officerName = event.detail.selectedOfficerName;
+
+  // How can you get the criminals that were arrested by that officer?
+  const criminals = useCriminals();
+  const filteredCriminalsArray = criminals.filter((criminalObject) => {
+    if (criminalObject.arrestingOfficer === officerName) {
+      return true;
+    }
+  });
+
+  //Render filtered criminals to DOM
+  renderToDom(filteredCriminalsArray);
 });
