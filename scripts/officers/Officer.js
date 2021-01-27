@@ -2,11 +2,12 @@
 
 export const Officer = (officerObj) => {
   return `
-    
-        <p class="officer">
+    <article class="officer">
+        
+        <p class="officerList">
             ${officerObj.name}
         </p>    
-            
+     </article>       
     `;
 };
 

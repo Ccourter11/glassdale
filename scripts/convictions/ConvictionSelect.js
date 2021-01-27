@@ -13,6 +13,8 @@ const eventHub = document.querySelector(".container");
 // Get a reference to the DOM element aka container where the <select> will be rendered
 const contentTarget = document.querySelector(".filters__crime");
 
+// this is the drop down bar for selecting a crime
+
 // On the event hub, listen for a "change" event.
 eventHub.addEventListener("change", (changeEvent) => {
   // Only do this if the `crimeSelect` element was changed

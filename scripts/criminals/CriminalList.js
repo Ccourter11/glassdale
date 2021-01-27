@@ -26,6 +26,8 @@ export const CriminalList = () => {
   });
 };
 
+// this is the find() & filter() method being used to specifically render what youve selected in the drop down
+
 // Listen for the "crimeChosen" custom event you dispatched in ConvictionSelect
 eventHub.addEventListener("crimeChosen", (crimeChosenEvent) => {
   if (crimeChosenEvent.detail.crimeThatWasChosen !== "0") {
