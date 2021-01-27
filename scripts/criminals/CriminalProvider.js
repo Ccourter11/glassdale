@@ -1,11 +1,4 @@
-let criminals = [
-  {
-    id: "",
-    name: "",
-    age: "",
-    conviction: "",
-  },
-];
+let criminals = [];
 
 export const useCriminals = () => criminals.slice();
 

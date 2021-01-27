@@ -1,28 +1,21 @@
 import { getCriminals, useCriminals } from "./CriminalProvider.js";
 import { Criminal } from "./Criminal.js";
 
-const CriminalsContinainer = document.querySelector(".criminalsContainer");
+const criminalsContainer = document.querySelector(".criminalsContainer");
 
 export const CriminalList = () => {
   getCriminals().then(() => {
-    const criminalArray = useCriminals();
-
+    const criminalsArray = useCriminals();
     let criminalsHTMLRepresentations = "";
-    // loop through the array of criminals
-    for (const criminal of criminalArray) {
+
+    for (const criminal of criminalsArray) {
       criminalsHTMLRepresentations += Criminal(criminal);
-
-      CriminalsContinainer.innerHTML = `
-
-
-    <h3>Glassdale Criminals</h3>
-    <section class="criminalList">
-        ${criminalsHTMLRepresentations}
-      
-    </section>
-        
-        
-        `;
     }
+
+    criminalsContainer.innerHTML = `
+    <h3>Criminals</h3>
+    <section class="criminalsList">
+    ${criminalsHTMLRepresentations}
+    </section>`;
   });
 };
