@@ -1,10 +1,25 @@
 {
   "notes": [
     {
-      "noteEntry": "",
-      "dateOf": "",
+      "date": "",
+      "suspect": "me",
+      "subject": "hello ",
+      "note": null,
+      "id": 1
+    },
+    {
+      "date": "",
+      "suspect": "me",
+      "subject": "hello ",
+      "note": null,
+      "id": 2
+    },
+    {
+      "date": "",
       "suspect": "",
-      "saveNote": ""
+      "subject": "hi",
+      "note": null,
+      "id": 3
     }
   ]
 }
