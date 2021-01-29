@@ -31,6 +31,30 @@
       "suspect": "Katie",
       "note": "She did it!",
       "id": 5
+    },
+    {
+      "text": "she did it",
+      "suspect": "Katie jo",
+      "date": "",
+      "author": "Calvin",
+      "intuition": "def guilty",
+      "id": 6
+    },
+    {
+      "text": "she did it",
+      "suspect": "Katie jo",
+      "date": "",
+      "author": "Calvin",
+      "intuition": "def guilty",
+      "id": 7
+    },
+    {
+      "text": "fo sho",
+      "suspect": "jim",
+      "date": "2021-01-29",
+      "author": "kt",
+      "intuition": "did it",
+      "id": 8
     }
   ]
 }

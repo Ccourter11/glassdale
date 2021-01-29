@@ -1,4 +1,4 @@
-const contentTarget = document.querySelector(".noteListButton");
+const contentTarget = document.querySelector(".noteListContainer");
 const eventHub = document.querySelector(".container");
 
 eventHub.addEventListener("click", (clickEvent) => {
