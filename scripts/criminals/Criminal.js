@@ -1,21 +1,4 @@
-// export const Criminal = (criminalObj) => {
-//   return `
-//   <article class="criminal">
-
-//           <h2 class="criminal__">${criminalObj.name}</h2>
-//           <div>Age: ${criminalObj.age}</div>
-//           <div>Crime: ${criminalObj.conviction}</div>
-//           <div>Term Start: ${new Date(
-//             criminalObj.incarceration.start
-//           ).toLocaleDateString("en-US")}</div>
-//           <div>Term End: ${new Date(
-//             criminalObj.incarceration.end
-//           ).toLocaleDateString("en-US")}</div>
-//           <button id="associates--${criminalObj.id}"> Associate Alibis</button>
-
-//   </article>
-//   `;
-// };
+const eventHub = document.querySelector(".container");
 
 export const Criminal = (criminalObj) => {
   return `
@@ -29,6 +12,21 @@ export const Criminal = (criminalObj) => {
           <p>Term end: ${new Date(
             criminalObj.incarceration.end
           ).toLocaleDateString("en-US")}</p>
+          <button id="associates--${criminalObj.id}">Associate Alibis</button>
       </article>
   `;
 };
+
+eventHub.addEventListener("click", (e) => {
+  if (e.target.id.startsWith("associates--")) {
+    const [prefix, criminal] = e.target.id.split("--");
+
+    const customEvent = new CustomEvent("associatesClicked", {
+      detail: {
+        criminalId: `${criminalObj.id}`,
+      },
+    });
+
+    eventHub.dispatchEvent(customEvent);
+  }
+});

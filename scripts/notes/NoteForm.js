@@ -1,51 +1,35 @@
 import { saveNote } from "./NoteDataProvider.js";
 
-const contentTarget = document.querySelector(".noteFormContainer");
 const eventHub = document.querySelector(".container");
-
-const render = () => {
-  contentTarget.innerHTML = `
-      <form action="">
-        <label for="note-suspect">Suspect: </label>
-        <input type="text" id="note-suspect">
-        <label for="note-author">Author: </label>
-        <input type="text" id="note-author">
-        <label for="note-date">Date: </label>
-        <input type="date" id="note-date">
-        <label for="note-intuition">Intuition: </label>
-        <input type="text" id="note-intuition">
-        <label for="note-text">Note: </label>
-        <input type="text" id="note-text">
-        <button id="saveNote">Save Note</button>
-      </form>
-    `;
-};
-
-export const NoteForm = () => {
-  render();
-};
-
+const contentTarget = document.querySelector(".noteFormContainer");
 // Handle browser-generated click event in component
 eventHub.addEventListener("click", (clickEvent) => {
-  clickEvent.preventDefault();
   if (clickEvent.target.id === "saveNote") {
-    const suspect = document.getElementById("note-suspect").value;
-    const author = document.getElementById("note-author").value;
-    const date = document.getElementById("note-date").value;
-    const intuition = document.getElementById("note-intuition").value;
-    const text = document.getElementById("note-text").value;
-    // debugger
     // Make a new object representation of a note
     const newNote = {
-      // Key/value pairs here
-      text: text,
-      suspect: suspect,
-      date: date,
-      author: author,
-      intuition: intuition,
+      date: `${document.getElementById("note-date").value}`,
+      author: `${document.getElementById("note-author").value}`,
+      suspect: `${document.getElementById("note-suspect").value}`,
+      text: `${document.getElementById("note-text").value}`,
+      intuition: `${document.getElementById("note-intuition").value}`,
     };
 
     // Change API state and application state
     saveNote(newNote);
   }
 });
+
+export const NoteForm = () => {
+  render();
+};
+
+const render = () => {
+  contentTarget.innerHTML = `
+    <input type="date" id="note-date">
+    <input type="text" id="note-author" placeholder="Author">
+    <input type="text" id="note-suspect" placeholder="Suspect">
+    <input type="text" id="note-text" placeholder="Notes">
+    <input type="text" id="note-intuition" placeholder="Intuition">
+    <button id="saveNote">Save Note</button>
+  `;
+};

@@ -63,6 +63,14 @@
       "author": "kel",
       "intuition": "hotdog",
       "id": 9
+    },
+    {
+      "date": "2021-01-30",
+      "author": "Dr.Sues",
+      "suspect": "Mike Tyson",
+      "text": "He can fight",
+      "intuition": "He is short",
+      "id": 10
     }
   ]
 }

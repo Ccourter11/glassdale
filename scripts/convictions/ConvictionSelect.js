@@ -31,48 +31,7 @@ eventHub.addEventListener("change", (changeEvent) => {
   }
 });
 
-// call ConvictionSelect will go through 3 steps
-export const ConvictionSelect = () => {
-  // Trigger fetching the API data and loading it into application state
-  getConvictions().then(() => {
-    // step 1 : get the data ^
-    // Get all convictions from application state
-    const convictions = useConvictions();
-    // step 2 : get a copy of the data
-    render(convictions);
-    // step 3 : render our copy to the DOM
-  });
-};
-
 const render = (convictionsCollection) => {
-  /*
-      Use interpolation here to invoke the map() method on
-      the convictionsCollection to generate the option elements.
-      Look back at the example provided above.
-
-      */
-  /*  The convictionsCollection.map() will iterate through an array that looks like this:
-    // [
-    //   {
-    //     name: "arson",
-    //     id: 1
-    //   }, {
-    //     name: "murder",
-    //     id: 2
-    //   },
-    //   ...
-        ] 
-    
-
-/* The new array that .map() returns will look like this:
-    // [
-    //   "<option value="1">arson</option>",
-    //   "<option value="2">murder</option>",
-    //   ...
-        ] 
-    
-
-  */
   contentTarget.innerHTML = `
   
       <select class="dropdown" id="crimeSelect">
@@ -85,4 +44,17 @@ const render = (convictionsCollection) => {
             .join("")}
       </select>
   `;
+};
+
+// call ConvictionSelect will go through 3 steps
+export const ConvictionSelect = () => {
+  // Trigger fetching the API data and loading it into application state
+  getConvictions().then(() => {
+    // step 1 : get the data ^
+    // Get all convictions from application state
+    const convictions = useConvictions();
+    // step 2 : get a copy of the data
+    render(convictions);
+    // step 3 : render our copy to the DOM
+  });
 };
