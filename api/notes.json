@@ -55,6 +55,14 @@
       "author": "kt",
       "intuition": "did it",
       "id": 8
+    },
+    {
+      "text": "catfish",
+      "suspect": "Jon",
+      "date": "2021-01-29",
+      "author": "kel",
+      "intuition": "hotdog",
+      "id": 9
     }
   ]
 }
