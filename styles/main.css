@@ -1,3 +1,36 @@
+body {
+  background-color: lightyellow;
+}
+h1 {
+  text-align: center;
+  margin-top: 50px;
+}
+h3 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+header {
+  padding: 2px;
+  margin: 8px;
+  border: 1px solid;
+  background-color: lightslategrey;
+}
+article.criminal {
+  background-color: rgb(235, 158, 43);
+}
+article.officer {
+  background-color: lightskyblue;
+}
+.filters {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.container {
+  border: 0.9px solid black;
+  padding: 5px;
+}
+
 .criminalsList,
 .officersList,
 .notesList {
@@ -34,4 +67,14 @@
 
 .note {
   border: 1px dotted rgb(230, 64, 22);
+}
+.noteFormContainer {
+  border: 1px solid blueviolet;
+  margin-bottom: 1px;
+  margin-top: 5px;
+}
+
+.noteListButton {
+  display: flex;
+  justify-content: center;
 }

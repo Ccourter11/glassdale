@@ -23,7 +23,7 @@ eventHub.addEventListener("click", (e) => {
 
     const customEvent = new CustomEvent("associatesClicked", {
       detail: {
-        criminalId: `${criminal}`,
+        criminalId: `${criminalObj.id}`,
       },
     });
 
