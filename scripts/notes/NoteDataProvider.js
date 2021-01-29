@@ -8,7 +8,7 @@ const dispatchStateChangeEvent = () => {
   eventHub.dispatchEvent(noteStateChangedEvent);
 };
 
-const getNotes = () => {
+export const getNotes = () => {
   return fetch("http://localhost:8088/notes")
     .then((response) => response.json())
     .then((parsedNotes) => {
@@ -27,3 +27,13 @@ export const saveNote = (note) => {
     .then(getNotes)
     .then(dispatchStateChangeEvent);
 };
+
+export const useNotes = () => notes.slice();
+
+// const eventHub = document.querySelector(".container");
+
+// const dispatchStateChangeEvent = () => {
+//   const noteStateChangedEvent = new CustomEvent("noteStateChanged");
+
+//   eventHub.dispatchEvent(noteStateChangedEvent);
+// };

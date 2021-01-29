@@ -3,7 +3,6 @@
     {
       "date": "",
       "suspect": "me",
-      "subject": "hello ",
       "note": null,
       "id": 1
     },
@@ -20,6 +19,50 @@
       "subject": "hi",
       "note": null,
       "id": 3
+    },
+    {
+      "date": "2021-01-29",
+      "suspect": "Katie",
+      "note": "She did it!",
+      "id": 4
+    },
+    {
+      "date": "2021-01-29",
+      "suspect": "Katie",
+      "note": "She did it!",
+      "id": 5
+    },
+    {
+      "text": "she did it",
+      "suspect": "Katie jo",
+      "date": "",
+      "author": "Calvin",
+      "intuition": "def guilty",
+      "id": 6
+    },
+    {
+      "text": "she did it",
+      "suspect": "Katie jo",
+      "date": "",
+      "author": "Calvin",
+      "intuition": "def guilty",
+      "id": 7
+    },
+    {
+      "text": "fo sho",
+      "suspect": "jim",
+      "date": "2021-01-29",
+      "author": "kt",
+      "intuition": "did it",
+      "id": 8
+    },
+    {
+      "text": "catfish",
+      "suspect": "Jon",
+      "date": "2021-01-29",
+      "author": "kel",
+      "intuition": "hotdog",
+      "id": 9
     }
   ]
 }
