@@ -17,16 +17,16 @@ export const Criminal = (criminalObj) => {
   `;
 };
 
-// eventHub.addEventListener("click", (e) => {
-//   if (e.target.id.startsWith("associates--")) {
-//     const [prefix, criminal] = e.target.id.split("--");
+eventHub.addEventListener("click", (e) => {
+  if (e.target.id.startsWith("associates--")) {
+    const [prefix, criminal] = e.target.id.split("--");
 
-//     const customEvent = new CustomEvent("associatesClicked", {
-//       detail: {
-//         criminalId: `${criminal}`,
-//       },
-//     });
+    const customEvent = new CustomEvent("associatesClicked", {
+      detail: {
+        criminalId: `${criminal}`,
+      },
+    });
 
-//     eventHub.dispatchEvent(customEvent);
-//   }
-// });
+    eventHub.dispatchEvent(customEvent);
+  }
+});
