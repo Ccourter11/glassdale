@@ -18,9 +18,17 @@ header {
 }
 article.criminal {
   background-color: rgb(235, 158, 43);
+  text-align: center;
 }
+
 article.officer {
   background-color: lightskyblue;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  border: 1px solid;
+  text-decoration: underline;
 }
 .filters {
   text-align: center;
