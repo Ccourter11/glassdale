@@ -71,6 +71,14 @@
       "text": "He can fight",
       "intuition": "He is short",
       "id": 10
+    },
+    {
+      "date": "2021-02-01",
+      "author": "Jim",
+      "suspect": "Jonny",
+      "text": "Jonny did it ",
+      "intuition": "he stole the money",
+      "id": 11
     }
   ]
 }
