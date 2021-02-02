@@ -84,7 +84,8 @@ footer {
   margin-top: 5px;
 }
 
-.noteListButton {
+.noteListButton,
+.witnessListButton {
   display: flex;
   justify-content: center;
 }
