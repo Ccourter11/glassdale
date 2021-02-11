@@ -26,6 +26,7 @@ export const NoteForm = () => {
 const render = () => {
   contentTarget.innerHTML = `
     <input type="date" id="note-date">
+    
     <input type="text" id="note-author" placeholder="Author">
     <input type="text" id="note-suspect" placeholder="Suspect">
     <input type="text" id="note-text" placeholder="Notes">
