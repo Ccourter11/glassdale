@@ -33,6 +33,7 @@ const renderNote = () => {
     <label for="note-text"> Criminal </label>
     
     <select id="noteForm__criminal" class="criminalSelect">
+    <option value="0">Please select a criminal..</option>
     ${criminalArray
       .map(
         (criminal) => `<option value="${criminal.id}">${criminal.name}</option>`

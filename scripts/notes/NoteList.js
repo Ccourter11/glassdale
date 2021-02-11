@@ -6,11 +6,7 @@ const contentTarget = document.querySelector(".notesContainer");
 // Define ye olde Evente Hubbe
 const eventHub = document.querySelector(".container");
 
-eventHub.addEventListener("showNotesClicked", (customEvent) => {
-  NoteList();
-});
-
-const render = (noteArray) => {
+const render = (noteArray, criminalArray) => {
   const allNotesConvertedToStrings = noteArray
     .map((noteObject) => {
       return NoteHTMLConverter(noteObject);
@@ -26,6 +22,10 @@ const render = (noteArray) => {
     </section>
   `;
 };
+
+eventHub.addEventListener("showNotesClicked", (customEvent) => {
+  NoteList();
+});
 
 // Standard list function you're used to writing by now. BUT, don't call this in main.js! Why not?
 export const NoteList = () => {
