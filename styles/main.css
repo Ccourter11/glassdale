@@ -1,6 +1,7 @@
 @import "./modal.css";
 body {
   background-color: lightyellow;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 h1 {
   text-align: center;
@@ -78,11 +79,11 @@ footer {
 .note {
   border: 1px dotted rgb(230, 64, 22);
 }
-.noteFormContainer {
+/* .noteFormContainer {
   border: 1px solid blueviolet;
   margin-bottom: 1px;
   margin-top: 5px;
-}
+} */
 
 .noteListButton,
 .witnessListButton {

@@ -30,7 +30,7 @@ const renderNote = () => {
     <input type="text" id="note-author" placeholder="Author">
   </fieldset>
   <fieldset>
-    <label for="note-text"> Case Note Entry </label>
+    <label for="note-text"> Criminal </label>
     
     <select id="noteForm__criminal" class="criminalSelect">
     ${criminalArray
@@ -48,7 +48,7 @@ const renderNote = () => {
     
 
     <fieldset>
-        <label for="note-text"> Case Note Entry </label>
+        <label for="note-text">Note Entry </label>
         <textarea type="textare" name="noteText" id="note-text" class="formOption"></textarea>
     </fieldset>
     <button id="saveNote">Save Note</button>
