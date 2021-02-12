@@ -1,38 +1,6 @@
 {
   "notes": [
     {
-      "date": "",
-      "suspect": "me",
-      "note": null,
-      "id": 1
-    },
-    {
-      "date": "",
-      "suspect": "me",
-      "subject": "hello ",
-      "note": null,
-      "id": 2
-    },
-    {
-      "date": "",
-      "suspect": "",
-      "subject": "hi",
-      "note": null,
-      "id": 3
-    },
-    {
-      "date": "2021-01-29",
-      "suspect": "Katie",
-      "note": "She did it!",
-      "id": 4
-    },
-    {
-      "date": "2021-01-29",
-      "suspect": "Katie",
-      "note": "She did it!",
-      "id": 5
-    },
-    {
       "text": "she did it",
       "suspect": "Katie jo",
       "date": "",

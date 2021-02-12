@@ -50,7 +50,14 @@ footer {
   justify-content: space-evenly;
   align-content: space-between;
 }
-
+.associatesList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 5%;
+  margin: 5px;
+  width: 33%;
+}
 .criminal,
 .officer,
 .note {

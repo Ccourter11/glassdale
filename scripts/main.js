@@ -8,6 +8,7 @@ import { OfficerList } from "./officers/OfficerList.js";
 import { OfficerSelect } from "./officers/OfficerSelect.js";
 import "./notes/NoteList.js";
 import { getCriminals } from "./criminals/CriminalProvider.js";
+// import "./associates/AssociatesList.js";
 
 OfficerList();
 CriminalList();
