@@ -10,7 +10,12 @@ export const getConvictions = () => {
       crimes = parsedCrime;
     });
   /*
-        Load database state into application state with a fetch().
-        Make sure the last then() updates the criminals array
-    */
+      Load database state into application state with a fetch().
+      Make sure the last `then()` sets the local `convictions`
+      variable to what is in the response from the API.
+      Steps:
+      1. Use fetch() to get data
+      2. Parse response
+      3. Put parsed response in convictions variable
+  */
 };
