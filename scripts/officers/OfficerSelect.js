@@ -1,27 +1,22 @@
-/*
- *   OfficerSelect component that renders a select HTML element
- *   which lists all the officers in the Glassdale PD API
- */
-import { getOfficers, useOfficers } from "./OfficerProvider.js";
+import { getOfficers, useOfficers } from "./OfficerDataProvider.js";
 
-const eventHub = document.querySelector(".container");
 const contentTarget = document.querySelector(".filters__officer");
+const eventHub = document.querySelector(".container");
 
-// On the event hub, listen for a "change" event.
 eventHub.addEventListener("change", (changeEvent) => {
-  // Only do this if the element with id `officerSelect` was changed
   if (changeEvent.target.id === "officerSelect") {
     // Get the name of the selected officer
     const selectedOfficer = changeEvent.target.value;
-    // Create custom event
-    const officerSelectedCustomEvent = new CustomEvent("officerSelected", {
+
+    // Define a custom event
+    const customEvent = new CustomEvent("officerSelected", {
       detail: {
-        selectedOfficerName: selectedOfficer,
+        officer: selectedOfficer,
       },
     });
 
-    // Dispatch to event hub
-    eventHub.dispatchEvent(officerSelectedCustomEvent);
+    // Dispatch event to event hub
+    eventHub.dispatchEvent(customEvent);
   }
 });
 
@@ -29,25 +24,25 @@ export const OfficerSelect = () => {
   // Trigger fetching the API data and loading it into application state
   getOfficers().then(() => {
     // Get all convictions from application state
-    const officers = useOfficers();
-    render(officers);
+    const officerArray = useOfficers();
+    render(officerArray);
   });
 };
 
 const render = (officerCollection) => {
+  /*
+    Use interpolation here to invoke the map() method on
+    the officerCollection to generate the option elements.
+    */
   contentTarget.innerHTML = `
-        <select class="dropdown" id="officerSelect">
-            <option value="0">Please select an officer...</option>
-            ${officerCollection
-              .map(
-                (officer) =>
-                  `<option value="${officer.name}">${officer.name}</option>`
-              )
-              .join("")}
+   <select class="dropdown" id="officerSelect">
+        <option value="0">Officers</option>
+         ${officerCollection
+           .map(
+             (officerObject) =>
+               `<option value="${officerObject.id}">${officerObject.name}</option>`
+           )
+           .join("")}
         </select>
     `;
 };
-eventHub.addEventListener(
-  "crimeChosen",
-  (crimeChosenEvent) => (document.querySelector("#officerSelect").value = 0)
-);

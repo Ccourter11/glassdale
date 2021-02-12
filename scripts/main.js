@@ -1,20 +1,34 @@
-import { ConvictionSelect } from "./convictions/ConvictionSelect.js";
-import { CriminalList } from "./criminals/CriminalList.js";
-import { NoteForm } from "./notes/NoteForm.js";
-getCriminals().then(NoteForm);
-import { ShowWitnessButton } from "./witnesses/ShowWitnessesButton.js";
-import { ShowNoteButton } from "./notes/ShowNotesButton.js";
-import { OfficerList } from "./officers/OfficerList.js";
-import { OfficerSelect } from "./officers/OfficerSelect.js";
-import "./notes/NoteList.js";
-import { getCriminals } from "./criminals/CriminalProvider.js";
-// import "./associates/AssociatesList.js";
+// import { ConvictionSelect } from "./convictions/ConvictionSelect.js";
 
-OfficerList();
+import { CriminalList } from "./criminals/CriminalList.js";
+import { ConvictionSelect } from "./convictions/ConvictionSelect.js";
+import { OfficerSelect } from "./officers/OfficerSelect.js";
+import { NoteForm } from "./notes/NoteForm.js";
+import { ShowNoteButton } from "./notes/ShowNotesButton.js";
+import "../scripts/notes/NoteList.js";
+import "../scripts/criminals/alibis/AssociateAlibis.js";
+import { ShowWitnessButton } from "./witnesses/ShowWitnessButton.js";
+
+// import { getWitness } from "./witnesses/WitnessDataProvider.js";
+
+// console.log(getOfficers())
+
+//List of officers
+// OfficerList()
+
+//List of criminals
 CriminalList();
+
 ConvictionSelect();
+
+//select dropdown call
 OfficerSelect();
-getCriminals();
+
+//Note form html
 NoteForm();
+
+//Show notes button
 ShowNoteButton();
+// NoteList()
+
 ShowWitnessButton();

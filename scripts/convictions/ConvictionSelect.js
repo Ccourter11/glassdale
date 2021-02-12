@@ -5,22 +5,20 @@
 import { useConvictions, getConvictions } from "./ConvictionProvider.js";
 
 /*
-Which element in your HTML contains all components?
-That's your Event Hub. Get a reference to it here.
+    Which element in your HTML contains all components?
+    That's your Event Hub. Get a reference to it here.
 */
 const eventHub = document.querySelector(".container");
-// Get a reference to the DOM element where the <select> will be rendered
 const contentTarget = document.querySelector(".filters__crime");
 
 // On the event hub, listen for a "change" event.
-eventHub.addEventListener("change", (changeEvent) => {
+eventHub.addEventListener("change", (event) => {
   // Only do this if the `crimeSelect` element was changed
-  if (changeEvent.target.id === "crimeSelect") {
-    // debugger
+  if (event.target.id === "crimeSelect") {
     // Create custom event. Provide an appropriate name.
     const customEvent = new CustomEvent("crimeChosen", {
       detail: {
-        crimeThatWasChosen: changeEvent.target.value,
+        crimeThatWasChosen: event.target.value,
       },
     });
 
@@ -39,47 +37,20 @@ export const ConvictionSelect = () => {
 };
 
 const render = (convictionsCollection) => {
-  //  debugger
   /*
-        Use interpolation here to invoke the map() method on
-        the convictionsCollection to generate the option elements.
-        Look back at the example provided above.
+    Use interpolation here to invoke the map() method on
+    the convictionsCollection to generate the option elements.
+    Look back at the example provided above.
     */
-  /*  The convictionsCollection.map() will iterate through an array that looks like this:
-    // [
-    //   {
-    //     name: "arson",
-    //     id: 1
-    //   }, {
-    //     name: "murder",
-    //     id: 2
-    //   },
-    //   ...
-        ] 
-    */
-
-  /* The new array that .map() returns will look like this:
-    // [
-    //   "<option value="1">arson</option>",
-    //   "<option value="2">murder</option>",
-    //   ...
-        ] 
-    */
-
   contentTarget.innerHTML = `
-        <select class="dropdown" id="crimeSelect">
-            <option value="0">Please select a crime...</option>
-            ${convictionsCollection
-              .map(
-                (conviction) =>
-                  `<option value="${conviction.id}">${conviction.name}</option>`
-              )
-              .join("")}
+   <select class="dropdown" id="crimeSelect">
+        <option value="0">Please select a crime...</option>
+         ${convictionsCollection
+           .map(
+             (convictionObject) =>
+               `<option value="${convictionObject.id}">${convictionObject.name}</option>`
+           )
+           .join("")}
         </select>
     `;
 };
-
-eventHub.addEventListener(
-  "officerSelected",
-  (crimeChosenEvent) => (document.querySelector("#crimeSelect").value = 0)
-);
