@@ -28,6 +28,7 @@ const htmlRender = () => {
                   .join("")}
                 </select>
                 <button class="savebtn" id="saveNote">Save Note</button>
+                
             </fieldset>
         </form>
     `;

@@ -18,6 +18,7 @@ const render = (noteCollection, criminalCollection) => {
 
   contentTarget.innerHTML = `
     <h2>Case Notes</h2><section class="noteEntry">${allNotesConvertedToStrings}</section>
+    
     `;
 };
 
