@@ -15,7 +15,7 @@ const htmlRender = () => {
         <form>
             <fieldset>
                 <input class="date" type="date" id="note-date">
-                <input class="author" type="text" id="note-author" value="Author">
+                <input class="author" type="text" id="note-author" value="author">
                 <textarea class="note" id="note-text">Note</textarea>
                 <label for ="noteForm--criminal">Choose Suspect:</label> 
                 <select id="noteForm--criminal" class="criminalSelect">
@@ -48,7 +48,7 @@ eventHub.addEventListener("click", (clickEvent) => {
       // Key/value pairs here
       note: document.querySelector("#note-text").value,
       date: document.querySelector("#note-date").value,
-      auther: document.querySelector("#note-auther").value,
+      auther: document.querySelector("#note-author").value,
       criminalId: document.querySelector("#noteForm--criminal").value,
     };
 
