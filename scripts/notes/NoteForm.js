@@ -1,62 +1,58 @@
-import { useCriminals } from "../criminals/CriminalProvider.js";
 import { saveNote } from "./NoteDataProvider.js";
+import {
+  getCriminals,
+  useCriminals,
+} from "../criminals/CriminalDataProvider.js";
 
-const eventHub = document.querySelector(".container");
 const contentTarget = document.querySelector(".noteFormContainer");
-// Handle browser-generated click event in component
+const eventHub = document.querySelector(".container");
+// debugger
+const htmlRender = () => {
+  getCriminals().then(() => {
+    const criminalArray = useCriminals();
+    contentTarget.innerHTML = `
+        Notes
+        <form>
+            <fieldset>
+                <input class="date" type="date" id="note-date">
+                <input class="author" type="text" id="note-author" value="Author">
+                <textarea class="note" id="note-text">Note</textarea>
+                <label for ="noteForm--criminal">Choose Suspect:</label> 
+                <select id="noteForm--criminal" class="criminalSelect">
+                <option value="0">Choose a Suspect</option>
+                ${criminalArray
+                  .map(
+                    (criminal) =>
+                      `<option value="${criminal.id}">${criminal.name}</option>`
+                  )
+                  .join("")}
+                </select>
+                <button class="savebtn" id="saveNote">Save Note</button>
+            </fieldset>
+        </form>
+    `;
+  });
+};
+
+export const NoteForm = () => {
+  htmlRender();
+};
+
 eventHub.addEventListener("click", (clickEvent) => {
   if (clickEvent.target.id === "saveNote") {
+    clickEvent.preventDefault();
+    // console.log ("click happened")
+    // debugger
     // Make a new object representation of a note
     const newNote = {
-      date: `${document.getElementById("note-date").value}`,
-      author: `${document.getElementById("note-author").value}`,
-      suspect: `${document.getElementById("note-suspect").value}`,
-      text: `${document.getElementById("note-text").value}`,
-      intuition: `${document.getElementById("note-intuition").value}`,
+      // Key/value pairs here
+      note: document.querySelector("#note-text").value,
+      date: document.querySelector("#note-date").value,
+      auther: document.querySelector("#note-auther").value,
+      criminalId: document.querySelector("#noteForm--criminal").value,
     };
 
     // Change API state and application state
     saveNote(newNote);
   }
 });
-
-const renderNote = () => {
-  const criminalArray = useCriminals();
-  contentTarget.innerHTML = `
-  
-  <form action="">
-  <fieldset>
-    <label for="note-author"> Author </label>
-    <input type="text" id="note-author" placeholder="Author">
-  </fieldset>
-  <fieldset>
-    <label for="note-text"> Criminal </label>
-    
-    <select id="noteForm__criminal" class="criminalSelect">
-    <option value="0">Please select a criminal..</option>
-    ${criminalArray
-      .map(
-        (criminal) => `<option value="${criminal.id}">${criminal.name}</option>`
-      )
-      .join("")}
-    </select>
-    </fieldset>
-    
-    <fieldset>
-    <label for="note-intuition"> Intuition </label>
-    <input type="text" id="note-intuition" placeholder="Intuition">
-    </fieldset>
-    
-
-    <fieldset>
-        <label for="note-text">Note Entry </label>
-        <textarea type="textare" name="noteText" id="note-text" class="formOption"></textarea>
-    </fieldset>
-    <button id="saveNote">Save Note</button>
-    </form>
-  `;
-};
-
-export const NoteForm = () => {
-  renderNote();
-};

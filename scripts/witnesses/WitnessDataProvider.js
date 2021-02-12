@@ -1,15 +1,13 @@
-let witnessCollection = [];
+//Get witness data from api and store in empty array
+let witness = [];
 
-export const useWitnesses = () => {
-  return witnessCollection.slice();
-};
+export const useWitness = () => witness.slice();
 
-// Where the data is coming from
-
-export const getWitnesses = () => {
+export const getWitness = () => {
   return fetch("https://criminals.glassdale.us/witnesses")
     .then((response) => response.json())
-    .then((parsedWitnesses) => {
-      witnessCollection = parsedWitnesses;
+    .then((parsedWitness) => {
+      console.table(parsedWitness);
+      witness = parsedWitness;
     });
 };
