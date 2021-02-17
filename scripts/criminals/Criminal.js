@@ -1,4 +1,4 @@
-export const Criminal = (criminalObj) => {
+export const Criminal = (criminalObj, facilities) => {
   return `
   <div class="criminalContainer">
       <p class="criminalName">${criminalObj.name}</p>
@@ -10,6 +10,14 @@ export const Criminal = (criminalObj) => {
       <p class="criminalTermEnd">Term end: ${new Date(
         criminalObj.incarceration.end
       ).toLocaleDateString("en-US")}</p>
+      <div>
+                <h2>Facilities</h2>
+                <ul>
+                    ${facilities
+                      .map((f) => `<li>${f.facilityName}</li>`)
+                      .join("")}
+                </ul>
+            </div>
       <button id="associates--${criminalObj.id}">Associate Alibis</button>
   </div>
   `;
