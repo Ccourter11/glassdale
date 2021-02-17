@@ -4,11 +4,16 @@ import { useConvictions } from "../convictions/ConvictionProvider.js";
 import { useOfficers } from "../officers/OfficerDataProvider.js";
 import { getWitness, useWitness } from "../witnesses/WitnessDataProvider.js";
 import { Witness } from "../witnesses/Witness.js";
+import { getFacilities, useFacilities } from "../facility/FacilityProvider.js";
+import {
+  getCriminalFacilities,
+  useCriminalFacilities,
+} from "../facility/CriminalFacilityProvider.js";
 
 const contentTarget = document.querySelector(".criminalsContainer");
 const eventHub = document.querySelector(".container");
 
-//_______________-Rendering Witnesses________________________
+//_____________________Rendering Witnesses
 
 export const WitnessList = () => {
   getWitness().then(() => {
@@ -29,8 +34,7 @@ eventHub.addEventListener("showWitnessClicked", (customEvent) => {
   WitnessList();
 });
 
-//________________________________________________
-//Listens for custum event from OfficeSelect dropdown
+//_____________________Listens for custum event from OfficeSelect dropdown
 eventHub.addEventListener("officerSelected", (event) => {
   // How can you access the officer name that was selected by the user?
   const officerName = event.detail.officer;
@@ -51,13 +55,13 @@ eventHub.addEventListener("officerSelected", (event) => {
     (criminalObject) =>
       criminalObject.arrestingOfficer === officerThatWasChosen.name
   );
-
-  renderToDom(criminalArray);
+  const facilities = useFacilities();
+  const crimFac = useCriminalFacilities();
+  renderToDom(criminalArray, facilities, crimFac);
 
   // debugger
 });
-//_________________________________________________________________
-//Event Listener sorting Criminals by Crime using crime dropdown
+//_________________Event Listener sorting Criminals by Crime using crime dropdown
 // Listen for the custom event you dispatched in ConvictionSelect
 eventHub.addEventListener("crimeChosen", (event) => {
   // Use the property you added to the event detail.
@@ -69,68 +73,43 @@ eventHub.addEventListener("crimeChosen", (event) => {
     const convictionThatWasChosen = convictionsArray.find((convictionObj) => {
       return convictionObj.id === parseInt(event.detail.crimeThatWasChosen);
     });
-
     // console.log("checked", convictionThatWasChosen.name)
 
     /*
             Filter the criminals application state down to the people that committed the crime
             */
-
     const appStateCriminals = useCriminals();
 
     const matchingCriminals = appStateCriminals.filter(
       (criminalObj) => criminalObj.conviction === convictionThatWasChosen.name
     );
-
-    /*
-        Then invoke render() and pass the filtered collection as
-        an argument
-        */
-    renderToDom(matchingCriminals);
+    const facilities = useFacilities();
+    const crimFac = useCriminalFacilities();
+    renderToDom(matchingCriminals, facilities, crimFac);
   }
 });
 
-// Render ALL criminals initally
+//_________________Render ALL criminals initally with facilities
 export const CriminalList = () => {
-  getCriminals().then(() => {
-    const appStateCriminals = useCriminals();
-    renderToDom(appStateCriminals);
-  });
-};
-
-const renderToDom = (criminalCollection) => {
-  let criminalHTMLRep = "";
-  //
-  criminalCollection.forEach((criminal) => {
-    criminalHTMLRep += Criminal(criminal);
-  });
-  contentTarget.innerHTML = `
-    <section class="criminalList">${criminalHTMLRep}</section>
-`;
-};
-
-export const CriminalList = () => {
-  // Kick off the fetching of both collections of data
   getFacilities()
     .then(getCriminalFacilities)
+    .then(getCriminals)
     .then(() => {
       // Pull in the data now that it has been fetched
       const facilities = useFacilities();
       const crimFac = useCriminalFacilities();
       const criminals = useCriminals();
 
-      // Pass all three collections of data to render()
-      render(criminals, facilities, crimFac);
+      renderToDom(criminals, facilities, crimFac);
     });
 };
-
-const render = (criminalsToRender, allFacilities, allRelationships) => {
+const renderToDom = (criminalsToRender, allFacilities, allRelationships) => {
   // Step 1 - Iterate all criminals
-  contentTarget.innerHTML = criminalsToRender
-    .map((criminalObj) => {
+  const criminalFilter = criminalsToRender
+    .map((criminalObject) => {
       // Step 2 - Filter all relationships to get only ones for this criminal
       const facilityRelationshipsForThisCriminal = allRelationships.filter(
-        (cf) => cf.criminalId === criminalObj.id
+        (cf) => cf.criminalId === criminalObject.id
       );
 
       // Step 3 - Convert the relationships to facilities with map()
@@ -142,7 +121,11 @@ const render = (criminalsToRender, allFacilities, allRelationships) => {
       });
 
       // Must pass the matching facilities to the Criminal component
-      return Criminal(criminalObj, facilities);
+      return Criminal(criminalObject, facilities);
     })
     .join("");
+
+  contentTarget.innerHTML = `
+    <section class="criminalList">${criminalFilter}</section>
+`;
 };
